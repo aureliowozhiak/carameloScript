@@ -1,0 +1,9 @@
+escreva("Teste")
+
+soma = 1 + 1
+
+escreva(soma)
+
+divisao = 10 / 2
+
+escreva(divisao)
