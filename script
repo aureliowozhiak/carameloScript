@@ -1,9 +1,20 @@
+inicio funcoes
+inicio funcao parametros: a, b
+    escreva(a + b)
+    escreva("fim")
+fim funcao
+
+inicio codigo principal
 escreva("Teste")
-
 soma = 1 + 1
-
 escreva(soma)
-
 divisao = 10 / 2
-
 escreva(divisao)
+escreva(10 + 90)
+
+a = 2
+b = 3
+c = 5
+escreva(a**a + 2*b - c)
+
+funcao()

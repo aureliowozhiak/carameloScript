@@ -1,40 +1,6 @@
 use std::io::Read;
-
-fn transform(content: String) -> String {
-    let mut rust_code = String::new();
-    rust_code.push_str("fn main() {\n");
-
-    // the file contains this:
-    // escreva("Teste")
-    //soma = 1 + 1
-    //escreva(soma)
-
-    for line in content.lines() {
-        if line.starts_with("escreva") {
-            let mut message = line.replace("escreva", "").trim().to_string();
-            message = message.replace("(", "");
-            message = message.replace(")", "");
-
-            if message.starts_with("\"") {
-                message = message.replace("\"", "");
-                rust_code.push_str(&format!("println!(\"{}\");\n", message));
-            }else{
-                rust_code.push_str(&format!("println!(\"{}\", {});\n", "{}", message));
-            }
-            
-            
-        }else if line.contains("=") {
-            let mut parts = line.split("=");
-            let variable = parts.next().unwrap().trim();
-            let expression = parts.next().unwrap().trim();
-            rust_code.push_str(&format!("let mut {} = {};\n", variable, expression));
-        }
-        
-    }
-
-    rust_code.push_str("}");
-    rust_code
-}
+// from transform.rs file import the struct Transformer impl Transformer 
+mod transformer;
 
 fn main() {
 
@@ -52,7 +18,7 @@ fn main() {
     let mut content = String::new();
     std::io::BufReader::new(file).read_to_string(&mut content).unwrap();
     
-    let _rust_code = transform(content);
+    let _rust_code = transformer::transform(content);
     
     std::fs::write("tmp_script.rs", _rust_code).unwrap();
 
