@@ -20,7 +20,7 @@ fn expression_fn(line: &str) -> String {
     let mut parts = line.split("=");
     let variable = parts.next().unwrap().trim();
     let expression = parts.next().unwrap().trim();
-    rust_code.push_str(&format!("let {} = {};\n", variable, expression));
+    rust_code.push_str(&format!("let mut {} = {};\n", variable, expression));
 
     rust_code
 }
@@ -29,8 +29,8 @@ fn start_function_fn(line: &str) -> String {
     let mut rust_code = String::new();
     let function_name = line.split_whitespace().nth(2).unwrap();
     rust_code.push_str(&format!("fn {}(", function_name));
-    
     let parameters = line.split_whitespace().skip(4);
+    let mut return_type = String::new();
     for parameter in parameters {
         let tmp_parameter = &format!("{}", parameter.replace(",", ""));
         //tmp_parameter -> exemplo: a:inteiro
@@ -38,6 +38,11 @@ fn start_function_fn(line: &str) -> String {
             let parts: Vec<&str> = tmp_parameter.split(":").collect();
             let parameter_name = parts[0];
             let parameter_type = parts[1];
+
+            if parameter_name == "retorne" {
+                return_type = (&parameter_type).to_string();
+                continue;
+            }
             rust_code.push_str(parameter_name);
             if parameter_type == "inteiro" {
                 rust_code.push_str(": i32");
@@ -57,8 +62,32 @@ fn start_function_fn(line: &str) -> String {
     // remove the last comma
     rust_code = rust_code.trim_end_matches(',').to_string();
     
-    rust_code.push_str(") {\n");
+    if return_type != "" {
+        rust_code.push_str(") -> ");
+        if return_type == "inteiro" {
+            rust_code.push_str("i32");
+        } else if return_type == "real" {
+            rust_code.push_str("f32");
+        } else if return_type == "texto" {
+            rust_code.push_str("&str");
+        } else if return_type == "logico" {
+            rust_code.push_str("bool");
+        } else {
+            panic!("Tipo de dado não suportado");
+        }
+        rust_code.push_str(" {\n");
+    } else {
+        rust_code.push_str(") {\n");
+    }
     rust_code = rust_code.replace(" )", ")");
+    rust_code
+}
+
+fn return_value_fn(line: &str) -> String {
+    let mut rust_code = String::new();
+    let binding = line.replace("retorne", "");
+    let return_value = binding.trim();
+    rust_code.push_str(&format!("{}\n", return_value));
     rust_code
 }
 
@@ -75,7 +104,14 @@ fn start_if(line: &str) -> String {
     rust_code.push_str(&format!("if {} {{\n", condition));
     rust_code
 }
-    
+
+fn start_while(line: &str) -> String {
+    let mut rust_code = String::new();
+    let binding = line.replace("enquanto", "").trim().replace("faca", "");
+    let condition = binding.trim();
+    rust_code.push_str(&format!("while {} {{\n", condition));
+    rust_code
+}
 
 pub fn transform(content: String) -> String {
     let mut rust_code = String::new();
@@ -109,6 +145,9 @@ pub fn transform(content: String) -> String {
             line if line.starts_with("inicio funcao") => {
                 rust_code.push_str(&start_function_fn(line));
             },
+            line if line.starts_with("retorne") => {
+                rust_code.push_str(&return_value_fn(line));
+            },
             line if line.starts_with("fim funcao") => {
                 rust_code.push_str(&end_with_keys());
             },
@@ -120,6 +159,17 @@ pub fn transform(content: String) -> String {
             },
             line if line.starts_with("fim se") => {
                 rust_code.push_str(&end_with_keys());
+            },
+            line if line.starts_with("enquanto") => {
+                rust_code.push_str(&start_while(line));
+            },
+            line if line.starts_with("fim enquanto") => {
+                rust_code.push_str(&end_with_keys());
+            },
+            line if line.starts_with("incremente") => {
+                let variable = line.replace("incremente", "");
+                let binding = variable.trim();
+                rust_code.push_str(&format!("{} = {} + 1;\n", binding, binding));
             },
             line if !line.is_empty() => {
                 rust_code.push_str(&format!("{};\n", line));

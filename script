@@ -3,9 +3,17 @@ inicio funcao soma_numeros parametros: a:inteiro, b:inteiro
     escreva(a + b)
     escreva("fim da função soma")
 fim funcao
+
 inicio funcao mensagem parametros: texto:texto
     escreva(texto)
 fim funcao
+
+inicio funcao teste_retorno parametros: a:inteiro, b:inteiro, retorne:inteiro
+    resultado = a + b
+    retorne resultado
+fim funcao
+
+
 fim funcoes
 
 inicio codigo principal
@@ -38,5 +46,23 @@ senao
     escreva("num1 não é maior que num2")
 fim se
     
+escreva("Teste de retorno de função")
+
+escreva("num1 vale:")
+num1 = 10
+escreva(num1)
+
+escreva("num2 vale:")
+num2 = 20
+escreva(num2)
+
+resultado = teste_retorno(num1, num2)
+escreva("Resultado da função teste_retorno (efetua soma entre num1 e num2):")
+escreva(resultado)
+
+enquanto num1 < 20 faca
+    escreva(num1)
+    incremente num1 
+fim enquanto
 
 fim codigo principal
