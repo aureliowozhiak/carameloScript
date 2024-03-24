@@ -19,19 +19,19 @@ O principal objetivo da Cobrinha Lang é facilitar o processo de aprendizado e u
 
 ### Funções
 
-```
+```Coffee
 inicio funcoes
 inicio funcao nome_da_funcao parametros: nome_parametro:tipo, nome_parametro:tipo, ...
-    // Corpo da função
+    # Corpo da função
 fim funcao
 fim funcoes
 ```
 
 ### Código Principal
 
-```
+```Coffee
 inicio codigo principal
-    // Corpo do programa
+    # Corpo do programa
 fim codigo principal
 ```
 
@@ -39,7 +39,7 @@ fim codigo principal
 
 A seguir, um exemplo de como usar a linguagem Cobrinha Lang para realizar operações simples de manipulação de dados.
 
-```cobrinha
+```Coffee
 inicio funcoes
 inicio funcao soma_numeros parametros: a:inteiro, b:inteiro
     escreva(a + b)
