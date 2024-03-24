@@ -20,7 +20,7 @@ fn expression_fn(line: &str) -> String {
     let mut parts = line.split("=");
     let variable = parts.next().unwrap().trim();
     let expression = parts.next().unwrap().trim();
-    rust_code.push_str(&format!("let mut {} = {};\n", variable, expression));
+    rust_code.push_str(&format!("let {} = {};\n", variable, expression));
 
     rust_code
 }
@@ -32,13 +32,35 @@ fn expression_fn(line: &str) -> String {
 
 fn start_function_fn(line: &str) -> String {
     let mut rust_code = String::new();
-    let function_name = line.split_whitespace().nth(1).unwrap();
+    let function_name = line.split_whitespace().nth(2).unwrap();
     rust_code.push_str(&format!("fn {}(", function_name));
     
-    let parameters = line.split_whitespace().skip(3);
+    let parameters = line.split_whitespace().skip(4);
     for parameter in parameters {
-        rust_code.push_str(&format!("{} ", parameter));
+        let tmp_parameter = &format!("{}", parameter.replace(",", ""));
+        //tmp_parameter -> exemplo: a:inteiro
+        if tmp_parameter.contains(":") {
+            let parts: Vec<&str> = tmp_parameter.split(":").collect();
+            let parameter_name = parts[0];
+            let parameter_type = parts[1];
+            rust_code.push_str(parameter_name);
+            if parameter_type == "inteiro" {
+                rust_code.push_str(": i32");
+            } else if parameter_type == "real" {
+                rust_code.push_str(": f32");
+            } else if parameter_type == "texto" {
+                rust_code.push_str(": &str");
+            } else if parameter_type == "logico" {
+                rust_code.push_str(": bool");
+            } else {
+                panic!("Tipo de dado não suportado");
+            }
+        }
+        rust_code.push_str(", ")
     }
+
+    // remove the last comma
+    rust_code = rust_code.trim_end_matches(',').to_string();
     
     rust_code.push_str(") {\n");
     rust_code = rust_code.replace(" )", ")");
@@ -59,6 +81,7 @@ pub fn transform(content: String) -> String {
         if line == "inicio codigo principal" {
             rust_code.push_str("// código principal\n");
             rust_code.push_str("fn main() {\n");
+            continue;
         }
         if line == "inicio funcoes" {
             continue;

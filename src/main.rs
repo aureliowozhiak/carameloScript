@@ -27,7 +27,7 @@ fn main() {
         .arg("tmp_script.rs")
         .output()
         .expect("Failed to compile the rust code");
-
+        
     // execute the compiled code
     let _output = std::process::Command::new("./tmp_script")
         .output()

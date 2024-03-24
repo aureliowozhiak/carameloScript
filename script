@@ -1,20 +1,38 @@
 inicio funcoes
-inicio funcao parametros: a, b
+inicio funcao soma_fn parametros: a:inteiro, b:inteiro
     escreva(a + b)
-    escreva("fim")
+    escreva("fim da função soma")
+fim funcao
+inicio funcao mensagem parametros: texto:texto
+    escreva(texto)
 fim funcao
 
 inicio codigo principal
 escreva("Teste")
+escreva("Soma de 1 com 1")
 soma = 1 + 1
 escreva(soma)
+escreva("--------------------")
+escreva("Divisão de 10 com 2")
 divisao = 10 / 2
 escreva(divisao)
+
+
+escreva("--------------------")
+escreva("Soma de 10 com 90 direto da função escreva")
 escreva(10 + 90)
 
-a = 2
-b = 3
-c = 5
-escreva(a**a + 2*b - c)
 
-funcao()
+escreva("--------------------")
+escreva("Função que retorna soma por parametros, 100 + 20")
+soma_fn(100, 20)
+
+
+escreva("--------------------")
+escreva("Função que retorna soma por parametros, em variaveis, 2 e 30")
+a = 2
+b = 30
+soma_fn(a, b)
+
+escreva("--------------------")
+mensagem("Mensagem enviada por função")
