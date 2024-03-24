@@ -1,3 +1,4 @@
+
 fn print_fn(line: &str) -> String {
     let mut rust_code = String::new();
     
@@ -170,6 +171,11 @@ pub fn transform(content: String) -> String {
                 let variable = line.replace("incremente", "");
                 let binding = variable.trim();
                 rust_code.push_str(&format!("{} = {} + 1;\n", binding, binding));
+            },
+            line if line.starts_with("decremente") => {
+                let variable = line.replace("decremente", "");
+                let binding = variable.trim();
+                rust_code.push_str(&format!("{} = {} - 1;\n", binding, binding));
             },
             line if !line.is_empty() => {
                 rust_code.push_str(&format!("{};\n", line));
