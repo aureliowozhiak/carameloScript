@@ -1,6 +1,4 @@
-# Documentação da Linguagem Cobrinha Lang
-
-## Introdução
+# Cobrinha Lang
 
 Cobrinha Lang é uma linguagem de programação 100% em português, projetada para tornar a programação acessível e simplificada para pessoas leigas ou não técnicas. Seu objetivo principal é permitir o tratamento e manipulação de dados de forma intuitiva e amigável.
 
