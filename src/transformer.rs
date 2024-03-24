@@ -86,6 +86,13 @@ pub fn transform(content: String) -> String {
         if line == "inicio funcoes" {
             continue;
         }
+        if line == "fim funcoes" {
+            continue;
+        }
+        if line == "fim codigo principal" {
+            rust_code.push_str("}\n");
+            continue;
+        }
         match line {
             line if line.starts_with("escreva") => {
                 rust_code.push_str(&print_fn(line));
@@ -106,6 +113,5 @@ pub fn transform(content: String) -> String {
             _ => {}
         }
     }
-    rust_code.push_str("}");
     rust_code
 }
