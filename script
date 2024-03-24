@@ -26,4 +26,17 @@ b = 30
 soma_numeros(a, b)
 
 mensagem("Mensagem enviada por função")
+
+num1 = 10
+num2 = 5
+
+escreva(num1)
+escreva(num2)
+se num1 > num2 entao
+    escreva("num1 é maior que num2")
+senao
+    escreva("num1 não é maior que num2")
+fim se
+    
+
 fim codigo principal

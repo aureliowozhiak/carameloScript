@@ -25,11 +25,6 @@ fn expression_fn(line: &str) -> String {
     rust_code
 }
 
-//inicio funcao parametros: a, b
-//escreva(a + b)
-//escreva("fim")
-//fim funcao
-
 fn start_function_fn(line: &str) -> String {
     let mut rust_code = String::new();
     let function_name = line.split_whitespace().nth(2).unwrap();
@@ -67,9 +62,17 @@ fn start_function_fn(line: &str) -> String {
     rust_code
 }
 
-fn end_function_fn() -> String {
+fn end_with_keys() -> String {
     let mut rust_code = String::new();
     rust_code.push_str("}\n");
+    rust_code
+}
+
+fn start_if(line: &str) -> String {
+    let mut rust_code = String::new();
+    let binding = line.replace("se", "").trim().replace("entao", "");
+    let condition = binding.trim();
+    rust_code.push_str(&format!("if {} {{\n", condition));
     rust_code
 }
     
@@ -107,9 +110,17 @@ pub fn transform(content: String) -> String {
                 rust_code.push_str(&start_function_fn(line));
             },
             line if line.starts_with("fim funcao") => {
-                rust_code.push_str(&end_function_fn());
+                rust_code.push_str(&end_with_keys());
             },
-            // se não der match e se a linha não estiver vazia apenas adiciona a linha ao código
+            line if line.starts_with("se ") => {
+                rust_code.push_str(&start_if(line));
+            },
+            line if line.starts_with("senao") => {
+                rust_code.push_str("} else {\n");
+            },
+            line if line.starts_with("fim se") => {
+                rust_code.push_str(&end_with_keys());
+            },
             line if !line.is_empty() => {
                 rust_code.push_str(&format!("{};\n", line));
             },
