@@ -94,6 +94,9 @@ pub fn transform(content: String) -> String {
             continue;
         }
         match line {
+            life if line.starts_with("#") => {
+                rust_code.push_str(&format!("// {}\n", line));
+            },
             line if line.starts_with("escreva") => {
                 rust_code.push_str(&print_fn(line));
             },
