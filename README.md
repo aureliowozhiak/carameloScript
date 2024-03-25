@@ -41,33 +41,21 @@ A seguir, um exemplo de como usar a linguagem Caramelo Script para realizar oper
 
 ```Coffee
 inicio funcoes
-inicio funcao soma_numeros parametros: a:inteiro, b:inteiro
-    escreva(a + b)
-    escreva("fim da função soma")
-fim funcao
-inicio funcao mensagem parametros: texto:texto
-    escreva(texto)
+inicio funcao soma_numeros parametros: a:inteiro, b:inteiro, retorne:inteiro
+    soma_ab = a + b
+    retorne soma_ab
 fim funcao
 fim funcoes
 
 inicio codigo principal
-escreva("Teste")
-escreva("Soma de 1 com 1")
-soma = 1 + 1
-escreva(soma)
-
-divisao = 10 / 2
-escreva(divisao)
-
-escreva(10 + 90)
-
-soma_numeros(100, 20)
 
 a = 2
 b = 30
-soma_numeros(a, b)
+resultado = soma_numeros(a, b)
+se resultado > 10 entao
+    escreva(resultado)
+fim se
 
-mensagem("Mensagem enviada por função")
 fim codigo principal
 ```
 

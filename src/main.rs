@@ -2,13 +2,14 @@ use std::io::Read;
 use std::io::Write;
 use std::os::unix::fs::PermissionsExt;
 mod transformer;
+use crate::transformer::transform;
 
-fn main() {
+fn main(){
 
     // read the parameters from the command line
     let args: Vec<String> = std::env::args().collect();
     if args.len() < 2 {
-        println!("Please provide the name of the file to be executed");
+        println!("Por favor, forneça o nome do arquivo a ser executado");
         return;
     }
 
@@ -19,7 +20,7 @@ fn main() {
     let mut content = String::new();
     std::io::BufReader::new(file).read_to_string(&mut content).unwrap();
     
-    let _rust_code = transformer::transform(content);
+    let _rust_code = transform(content);
     
     std::fs::write("tmp_script.rs", _rust_code).unwrap();
 

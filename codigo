@@ -1,0 +1,23 @@
+inicio funcoes
+
+inicio funcao verifica_idade_maior parametro: idade:inteiro, retorne:texto
+    se idade >= 18 entao
+        texto = "Maior de idade"
+        retorne texto
+    senao
+        texto = "Menor de idade"
+        retorne texto
+    fim se
+
+fim funcao
+
+fim funcoes
+
+inicio codigo principal
+
+idade_pessoa = 20
+resultado = verifica_idade_maior(idade_pessoa)
+escreva(resultado)
+
+
+fim codigo principal

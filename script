@@ -1,75 +1,17 @@
 inicio funcoes
-inicio funcao soma_numeros parametros: a:inteiro, b:inteiro
-    escreva(a + b)
-    escreva("fim da função soma")
+inicio funcao soma_numeros parametros: a:inteiro, b:inteiro, retorne:inteiro
+    soma_ab = a + b
+    retorne soma_ab
 fim funcao
-
-inicio funcao mensagem parametros: texto:texto
-    escreva(texto)
-fim funcao
-
-inicio funcao teste_retorno parametros: a:inteiro, b:inteiro, retorne:inteiro
-    resultado = a + b
-    retorne resultado
-fim funcao
-
-
 fim funcoes
 
 inicio codigo principal
-escreva("Teste")
-escreva("Soma de 1 com 1")
-soma = 1 + 1
-escreva(soma)
-
-divisao = 10 / 2
-escreva(divisao)
-
-escreva(10 + 90)
-
-soma_numeros(100, 20)
 
 a = 2
-b = 30
-soma_numeros(a, b)
-
-mensagem("Mensagem enviada por função")
-
-num1 = 10
-num2 = 5
-
-escreva(num1)
-escreva(num2)
-se num1 > num2 entao
-    escreva("num1 é maior que num2")
-senao
-    escreva("num1 não é maior que num2")
+b = 10000
+resultado = soma_numeros(a, b)
+se resultado > 10 entao
+    escreva(resultado)
 fim se
-    
-escreva("Teste de retorno de função")
-
-escreva("num1 vale:")
-num1 = 10
-escreva(num1)
-
-escreva("num2 vale:")
-num2 = 20
-escreva(num2)
-
-resultado = teste_retorno(num1, num2)
-escreva("Resultado da função teste_retorno (efetua soma entre num1 e num2):")
-escreva(resultado)
-
-enquanto num1 < 20 faca
-    escreva(num1)
-    incremente num1 
-fim enquanto
-
-escreva("Digite seu nome:")
-leia nome
-escreva("Seu nome é:")
-escreva(nome)
-
-
 
 fim codigo principal

@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "carameloscript"
+name = "caramelo_script"
 version = "0.1.0"
