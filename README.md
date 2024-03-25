@@ -1,19 +1,19 @@
-# Cobrinha Lang
+# Caramelo Script
 
-Cobrinha Lang é uma linguagem de programação 100% em português, projetada para tornar a programação acessível e simplificada para pessoas leigas ou não técnicas. Seu objetivo principal é permitir o tratamento e manipulação de dados de forma intuitiva e amigável.
+Caramelo Script é uma linguagem de programação 100% em português, projetada para tornar a programação acessível e simplificada para pessoas leigas ou não técnicas. Seu objetivo principal é permitir o tratamento e manipulação de dados de forma intuitiva e amigável.
 
 ## Objetivo
 
-O principal objetivo da Cobrinha Lang é facilitar o processo de aprendizado e uso da programação, especialmente para aqueles que não possuem experiência técnica prévia. Ao fornecer uma sintaxe simples e clara em português, a linguagem busca reduzir a barreira de entrada para o mundo da programação, permitindo que um público mais amplo possa utilizar o poder da computação para resolver problemas e automatizar tarefas.
+O principal objetivo da Caramelo Script é facilitar o processo de aprendizado e uso da programação, especialmente para aqueles que não possuem experiência técnica prévia. Ao fornecer uma sintaxe simples e clara em português, a linguagem busca reduzir a barreira de entrada para o mundo da programação, permitindo que um público mais amplo possa utilizar o poder da computação para resolver problemas e automatizar tarefas.
 
 ## Vantagens
 
 - **Facilidade de Aprendizado:** A sintaxe em português torna a linguagem mais acessível para iniciantes, eliminando a necessidade de aprender um novo vocabulário técnico em inglês.
 - **Intuitiva:** As estruturas de controle e manipulação de dados são projetadas para serem intuitivas, facilitando o entendimento do fluxo de um programa.
 - **Redução de Erros:** A linguagem simplificada reduz a probabilidade de erros de sintaxe e semântica, tornando mais fácil o desenvolvimento de programas funcionais.
-- **Foco em Tratamento de Dados:** Cobrinha Lang é especialmente adequada para tarefas relacionadas ao tratamento e manipulação de dados, tornando-a útil para análise de dados simples e tarefas de automação.
+- **Foco em Tratamento de Dados:** Caramelo Script é especialmente adequada para tarefas relacionadas ao tratamento e manipulação de dados, tornando-a útil para análise de dados simples e tarefas de automação.
 
-# Documentação Técnica da Linguagem Cobrinha Lang
+# Documentação Técnica da Linguagem Caramelo Script
 
 ## Sintaxe
 
@@ -37,7 +37,7 @@ fim codigo principal
 
 ## Uso da Linguagem
 
-A seguir, um exemplo de como usar a linguagem Cobrinha Lang para realizar operações simples de manipulação de dados.
+A seguir, um exemplo de como usar a linguagem Caramelo Script para realizar operações simples de manipulação de dados.
 
 ```Coffee
 inicio funcoes
@@ -75,4 +75,4 @@ Neste exemplo, temos a definição de duas funções (`soma_numeros` e `mensagem
 
 ## Conclusão
 
-A linguagem Cobrinha Lang oferece uma abordagem simplificada e acessível para programação em português, permitindo que indivíduos sem experiência técnica possam se envolver e criar programas para resolver problemas do mundo real. Com uma sintaxe intuitiva e foco em tratamento de dados, ela se torna uma ferramenta poderosa para automação e análise de informações.
+A linguagem Caramelo Script oferece uma abordagem simplificada e acessível para programação em português, permitindo que indivíduos sem experiência técnica possam se envolver e criar programas para resolver problemas do mundo real. Com uma sintaxe intuitiva e foco em tratamento de dados, ela se torna uma ferramenta poderosa para automação e análise de informações.

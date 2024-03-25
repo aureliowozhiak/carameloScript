@@ -1,5 +1,6 @@
 use std::io::Read;
-// from transform.rs file import the struct Transformer impl Transformer 
+use std::io::Write;
+use std::os::unix::fs::PermissionsExt;
 mod transformer;
 
 fn main() {
@@ -28,16 +29,14 @@ fn main() {
         .output()
         .expect("Failed to compile the rust code");
         
-    // execute the compiled code
-    let _output = std::process::Command::new("./tmp_script")
-        .output()
-        .expect("Failed to execute the compiled code");
+    // create run.sh file
+    let mut run_file = std::fs::File::create("run.sh").unwrap();
+    run_file.write_all(b"#!/bin/bash\n").unwrap();
+    run_file.write_all(b"./tmp_script\n").unwrap();
+    run_file.write_all(b"rm tmp_script.rs\n").unwrap();
+    run_file.write_all(b"rm tmp_script\n").unwrap();
+    run_file.write_all(b"rm run.sh\n").unwrap();
+    std::fs::set_permissions("run.sh", std::fs::Permissions::from_mode(0o755)).unwrap();
 
-    // print the output
-    println!("{}", String::from_utf8_lossy(&_output.stdout));
-
-    // remove the temporary files
-    std::fs::remove_file("tmp_script.rs").unwrap();
-    std::fs::remove_file("tmp_script").unwrap();
         
 }

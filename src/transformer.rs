@@ -130,7 +130,7 @@ pub fn transform(content: String) -> String {
             continue;
         }
         if line == "fim codigo principal" {
-            rust_code.push_str("}\n");
+            rust_code.push_str(&end_with_keys());
             continue;
         }
         match line {
@@ -139,9 +139,6 @@ pub fn transform(content: String) -> String {
             },
             line if line.starts_with("escreva") => {
                 rust_code.push_str(&print_fn(line));
-            },
-            line if line.contains("=") => {
-                rust_code.push_str(&expression_fn(line));
             },
             line if line.starts_with("inicio funcao") => {
                 rust_code.push_str(&start_function_fn(line));
@@ -176,6 +173,16 @@ pub fn transform(content: String) -> String {
                 let variable = line.replace("decremente", "");
                 let binding = variable.trim();
                 rust_code.push_str(&format!("{} = {} - 1;\n", binding, binding));
+            },
+            line if line.starts_with("leia") => {
+                let variable = line.replace("leia", "");
+                let binding = variable.trim();
+                rust_code.push_str(&format!("let mut {} = String::new();\n", binding));
+                rust_code.push_str(&format!("std::io::stdin().read_line(&mut {}).unwrap();\n", binding));
+                rust_code.push_str(&format!("{} = {}.trim().parse().unwrap();\n", binding, binding));
+            },
+            line if line.contains("=") => {
+                rust_code.push_str(&expression_fn(line));
             },
             line if !line.is_empty() => {
                 rust_code.push_str(&format!("{};\n", line));

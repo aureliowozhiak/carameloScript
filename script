@@ -65,5 +65,11 @@ enquanto num1 < 20 faca
     incremente num1 
 fim enquanto
 
+escreva("Digite seu nome:")
+leia nome
+escreva("Seu nome é:")
+escreva(nome)
+
+
 
 fim codigo principal
