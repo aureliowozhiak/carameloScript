@@ -6,7 +6,6 @@ use crate::transformer::transform;
 
 fn main(){
 
-    // read the parameters from the command line
     let args: Vec<String> = std::env::args().collect();
     if args.len() < 2 {
         println!("Por favor, forneça o nome do arquivo a ser executado");
@@ -24,13 +23,11 @@ fn main(){
     
     std::fs::write("tmp_script.rs", _rust_code).unwrap();
 
-    // compile the rust code
     let _output = std::process::Command::new("rustc")
         .arg("tmp_script.rs")
         .output()
         .expect("Failed to compile the rust code");
         
-    // create run.sh file
     let mut run_file = std::fs::File::create("run.sh").unwrap();
     run_file.write_all(b"#!/bin/bash\n").unwrap();
     run_file.write_all(b"./tmp_script\n").unwrap();
