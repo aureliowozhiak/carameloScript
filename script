@@ -14,4 +14,10 @@ se resultado > 10 entao
     escreva(resultado)
 fim se
 
+x = 0
+enquanto x < 10 faca
+    incremente x
+    escreva(x)
+fim enquanto
+
 fim codigo principal
