@@ -20,4 +20,9 @@ enquanto x < 10 faca
     escreva(x)
 fim enquanto
 
+lista numeros = [1, 2, 3, 4, 5]
+
+escreva(numeros[3])
+
+
 fim codigo principal
