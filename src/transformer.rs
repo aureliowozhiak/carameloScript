@@ -5,6 +5,7 @@ mod loops;
 mod printer;
 mod utils;
 mod reader;
+mod data_structures;
 
 pub fn transform(content: String) -> String {
 
@@ -55,6 +56,9 @@ pub fn transform(content: String) -> String {
             },
             line if line.starts_with("leia") => {
                 rust_code.push_str(&reader::read_string(line));
+            },
+            line if line.starts_with("lista") => {
+                rust_code.push_str(&data_structures::list(line));
             },
             line if line.contains("=") => {
                 rust_code.push_str(&utils::expression(line));
