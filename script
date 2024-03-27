@@ -1,28 +1,12 @@
-inicio funcoes
-inicio funcao soma_numeros parametros: a:inteiro, b:inteiro, retorne:inteiro
-    soma_ab = a + b
-    retorne soma_ab
-fim funcao
-fim funcoes
-
 inicio codigo principal
-
-a = 2
-b = 10000
-resultado = soma_numeros(a, b)
-se resultado > 10 entao
-    escreva(resultado)
-fim se
-
+lista nomes = ["João", "Maria", "José", "Pedro", "Paulo", "Lucas", "Mateus", "Marcos", "Luciana", "Mariana", "Joaquim", "Joaquina", "Joaquino", "Joaquinete", "Joaquimzinho"]
+quantidade_nomes = 15
 x = 0
-enquanto x < 10 faca
+enquanto x < quantidade_nomes faca
+    escreva(nomes[x])
     incremente x
-    escreva(x)
 fim enquanto
 
-lista numeros = [1, 2, 3, 4, 5]
-
-escreva(numeros[3])
 
 
 fim codigo principal

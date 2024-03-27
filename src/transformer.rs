@@ -70,7 +70,7 @@ pub fn transform(content: String) -> String {
                 continue;
                 //rust_code.push_str(&format!("// {}\n", line));
             },
-            _ => {}
+            _ => {} // do nothing,
         }
     }
     rust_code

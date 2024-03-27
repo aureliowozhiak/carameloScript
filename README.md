@@ -2,6 +2,8 @@
 
 Caramelo Script é uma linguagem de programação 100% em português, projetada para tornar a programação acessível e simplificada para pessoas leigas ou não técnicas. Seu objetivo principal é permitir o tratamento e manipulação de dados de forma intuitiva e amigável.
 
+```cargo run <CAMINHO_SCRIPT_PARA_EXECUTAR> && ./run.sh ```
+
 ## Objetivo
 
 O principal objetivo da Caramelo Script é facilitar o processo de aprendizado e uso da programação, especialmente para aqueles que não possuem experiência técnica prévia. Ao fornecer uma sintaxe simples e clara em português, a linguagem busca reduzir a barreira de entrada para o mundo da programação, permitindo que um público mais amplo possa utilizar o poder da computação para resolver problemas e automatizar tarefas.
