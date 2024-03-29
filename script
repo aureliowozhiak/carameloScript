@@ -30,6 +30,10 @@ fim enquanto
 
 lista numeros = [1, 2, 3, 4, 5]
 
+para i entre numeros[0] e numeros[4] faca
+    escreva(i)
+fim para
+
 escreva(numeros[3])
 
 
