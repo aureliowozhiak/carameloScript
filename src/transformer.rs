@@ -36,6 +36,9 @@ pub fn transform(content: String) -> String {
             line if line.starts_with("se ") => {
                 rust_code.push_str(&conditionals::start_if(line));
             },
+            line if line.starts_with("senao se ") => {
+                rust_code.push_str(&conditionals::start_else_if(line));
+            },
             line if line.starts_with("senao") => {
                 rust_code.push_str("} else {\n");
             },line if line.starts_with("fim se") =>{
