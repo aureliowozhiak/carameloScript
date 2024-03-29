@@ -44,6 +44,11 @@ pub fn transform(content: String) -> String {
                 rust_code.push_str(&utils::end_with_keys());
             },line if line.starts_with("fim enquanto") => {
                 rust_code.push_str(&utils::end_with_keys());
+            }, line if line.starts_with("fim para") => {
+                rust_code.push_str(&utils::end_with_keys());
+            },
+            line if line.starts_with("para") => {
+                rust_code.push_str(&loops::start_for(line));
             },
             line if line.starts_with("enquanto") => {
                 rust_code.push_str(&loops::start_while(line));
