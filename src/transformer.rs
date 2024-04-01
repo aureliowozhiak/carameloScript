@@ -6,6 +6,7 @@ mod printer;
 mod utils;
 mod reader;
 mod data_structures;
+mod parser;
 
 pub fn transform(content: String) -> String {
 
@@ -70,6 +71,13 @@ pub fn transform(content: String) -> String {
             },
             line if line.contains("=") => {
                 rust_code.push_str(&utils::expression(line));
+            },
+            // converte para inteiro a_string b_inteiro
+            line if line.contains("converte para inteiro") => {
+                rust_code.push_str(&parser::string_to_int(line));
+            },
+            line if line.contains("converte para real") => {
+                rust_code.push_str(&parser::string_to_float(line));
             },
             line if !line.is_empty() => {
                 rust_code.push_str(&format!("{};\n", line));

@@ -36,5 +36,13 @@ fim para
 
 escreva(numeros[3])
 
+a_string = "123"
+b = 123
+
+converte para inteiro a_string a
+
+soma_ab_string = a + b
+
+escreva(soma_ab_string)
 
 fim codigo principal
