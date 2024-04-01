@@ -14,6 +14,14 @@ se resultado > 10 entao
     escreva(resultado)
 fim se
 
+se a == b entao
+    escreva("a igual a b")
+senao se a < b entao
+    escreva("a menor que b")
+senao
+    escreva("b maior que a")
+fim se
+
 x = 0
 enquanto x < 10 faca
     incremente x
@@ -21,6 +29,10 @@ enquanto x < 10 faca
 fim enquanto
 
 lista numeros = [1, 2, 3, 4, 5]
+
+para i entre numeros[0] e numeros[4] faca
+    escreva(i)
+fim para
 
 escreva(numeros[3])
 
