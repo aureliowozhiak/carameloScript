@@ -1,7 +1,7 @@
 pub fn string_to_int(line: &str) -> String {
     let mut rust_code = String::new();
     // converte para inteiro string_value int_value
-    let variable = line.replace("converte para inteiro", "");
+    let variable = line.replace("converta para inteiro", "");
     let parts: Vec<&str> = variable.split(" ").collect();
     let string_value = parts[1];
     let int_value = parts[2];
@@ -12,7 +12,7 @@ pub fn string_to_int(line: &str) -> String {
 pub fn string_to_float(line: &str) -> String {
     let mut rust_code = String::new();
     // converte para inteiro string_value int_value
-    let variable = line.replace("converte para real", "");
+    let variable = line.replace("converta para real", "");
     let parts: Vec<&str> = variable.split(" ").collect();
     let string_value = parts[1];
     let float_value = parts[2];
