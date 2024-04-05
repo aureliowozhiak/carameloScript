@@ -42,13 +42,24 @@ pub fn transform(content: String) -> String {
             },
             line if line.starts_with("senao") => {
                 rust_code.push_str("} else {\n");
-            },line if line.starts_with("fim se") =>{
+            },
+            line if line.starts_with("seja") => {
+                rust_code.push_str(&conditionals::start_match_condition(line));
+            },
+            line if line.starts_with("caso") => {
+                rust_code.push_str(&conditionals::start_match(line));
+            },
+            line if line.starts_with("fim seja") => {
+                rust_code.push_str(&utils::end_with_keys_and_coma());
+            }, line if line.starts_with("fim se") =>{
                 rust_code.push_str(&utils::end_with_keys());
             }line if line.starts_with("fim funcao") => {
                 rust_code.push_str(&utils::end_with_keys());
             },line if line.starts_with("fim enquanto") => {
                 rust_code.push_str(&utils::end_with_keys());
             }, line if line.starts_with("fim para") => {
+                rust_code.push_str(&utils::end_with_keys());
+            }, line if line.starts_with("fim caso") => {
                 rust_code.push_str(&utils::end_with_keys());
             },
             line if line.starts_with("para") => {

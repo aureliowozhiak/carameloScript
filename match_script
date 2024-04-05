@@ -1,0 +1,19 @@
+teste = 5
+caso teste
+    seja 1 entao
+        um = "um"
+        escreva(um)
+    fim seja
+    seja 2 entao
+        escreva("dois")
+    fim seja
+    seja 3 entao
+        escreva("tres")
+    fim seja
+    seja 4 entao
+        escreva("quatro")
+    fim seja
+    seja 5 entao
+        escreva("cinco")
+    fim seja
+fim caso

@@ -15,6 +15,12 @@ pub fn end_with_keys() -> String {
     rust_code
 }
 
+pub fn end_with_keys_and_coma() -> String {
+    let mut rust_code = String::new();
+    rust_code.push_str("},\n");
+    rust_code
+}
+
 pub fn increment(line: &str) -> String {
     let mut rust_code = String::new();
     let variable = line.replace("incremente", "");
